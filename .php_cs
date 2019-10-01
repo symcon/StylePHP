@@ -1,5 +1,9 @@
 <?php
 
+$finder = PhpCsFixer\Finder::create()
+    ->exclude('libs/vendor')
+    ->in(__DIR__);
+
 return PhpCsFixer\Config::create()
     ->setRules([
         'align_multiline_comment' => [
@@ -173,5 +177,6 @@ return PhpCsFixer\Config::create()
         'whitespace_after_comma_in_array' => true,
         //yoda_style
     ])
+    ->setFinder($finder)
     ->setIndent("    ")
     ->setLineEnding("\n");
