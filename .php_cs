@@ -132,9 +132,9 @@ return PhpCsFixer\Config::create()
         'not_operator_with_space' => false,
         'not_operator_with_successor_space' => false,
         'object_operator_without_whitespace' => true,
-        'ordered_class_elements' => false,
-        'ordered_imports' => false,
-        'ordered_interfaces' => false,
+        'ordered_class_elements' => true,
+        'ordered_imports' => true,
+        'ordered_interfaces' => true,
         //php_unit_*
         //php_doc_*
         'pow_to_exponentiation' => false,
