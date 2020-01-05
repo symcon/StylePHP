@@ -1,7 +1,7 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('/libs\/.*\/\.github/)
+    ->exclude('/libs\/.*\/\.github/')
     ->in(__DIR__);
 
 return PhpCsFixer\Config::create()
