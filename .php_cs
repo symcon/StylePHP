@@ -1,8 +1,8 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('libs/phpseclib')
-    ->in(__DIR__);
+    ->in(__DIR__)
+    ->exclude('libs/phpseclib');
 
 return PhpCsFixer\Config::create()
     ->setRules([
