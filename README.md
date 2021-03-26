@@ -7,7 +7,7 @@
 - In settings.json folgende Einträge hinzufügen (Pfade anpassen):
 ```
 "php.validate.executablePath": "Path\\To\\php.exe",
-"php-cs-fixer.excecutablePath": "Path\\To\\php-cs-fixer-v2.phar",
+"php-cs-fixer.executablePath": "Path\\To\\php-cs-fixer-v2.phar",
 "php-cs-fixer.config": ".style/.php_cs",
 "php-cs-fixer.allowRisky": true
 ```
