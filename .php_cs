@@ -92,7 +92,7 @@ return PhpCsFixer\Config::create()
         'no_blank_lines_after_phpdoc' => true,
         'no_blank_lines_before_namespace' => false,
         'no_break_comment' => [
-            'comment_text' => 'No break. Add additional comment below this line if intentional'
+            'comment_text' => 'No break. Add additional comment above this line if intentional'
         ],
         'no_closing_tag' => true,
         'no_empty_comment' => true,
