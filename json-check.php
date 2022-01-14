@@ -4,7 +4,9 @@
     $invalidFiles = jsonStyleCheck('.');
 
     if (!empty($invalidFiles)) {
-        var_dump($invalidFiles);
+        foreach ($invalidFiles as $invalidFile) {
+            echo $invalidFile . PHP_EOL;
+        }
         exit(1);
     }
 
