@@ -19,12 +19,21 @@
         die('Unsupported mode "' . $mode . '"!');
     }
 
+    $start = microtime(true);
     $invalidFiles = jsonStyleCheck($dir, $mode);
+    $duration = microtime(true) - $start;
+
+    foreach ($invalidFiles as $invalidFile) {
+        echo $invalidFile . PHP_EOL;
+    }
 
     if (!empty($invalidFiles)) {
-        foreach ($invalidFiles as $invalidFile) {
-            echo $invalidFile . PHP_EOL;
-        }
+        echo PHP_EOL;
+    }
+
+    echo 'Checked all files in ' . number_format($duration, 3) . ' seconds, ' . number_format(memory_get_peak_usage() / 1024 / 1024, 3) . " MB memory used" . PHP_EOL;
+
+    if (!empty($invalidFiles)) {
         exit(1);
     }
 
