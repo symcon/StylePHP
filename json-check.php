@@ -1,7 +1,25 @@
 <?php
 
     declare(strict_types=1);
-    $invalidFiles = jsonStyleCheck('.');
+
+    if ($argc == 1) {
+        $mode = '';
+        $dir = '.';
+    } else if($argc == 2) {
+        $mode = $argv[1];
+        $dir = '.';
+    } else if($argc == 3) {
+        $mode = $argv[1];
+        $dir = $argv[2];
+    } else {
+        die('JSON Checker cannot be run with this set of parameters!');
+    }
+
+    if (!in_array($mode, ['', 'fix'])) {
+        die('Unsupported mode "' . $mode . '"!');
+    }
+
+    $invalidFiles = jsonStyleCheck($dir, $mode);
 
     if (!empty($invalidFiles)) {
         foreach ($invalidFiles as $invalidFile) {
@@ -10,17 +28,17 @@
         exit(1);
     }
 
-    function jsonStyleCheck(string $dir)
+    function jsonStyleCheck(string $dir, string $mode)
     {
         $invalidFiles = [];
         $files = scandir($dir);
         foreach ($files as $file) {
             if ($file != '.' && $file != '..' && $dir != './libs/vendor') {
                 if (is_dir($dir . '/' . $file)) {
-                    $invalidFiles = array_merge($invalidFiles, jsonStyleCheck($dir . '/' . $file));
+                    $invalidFiles = array_merge($invalidFiles, jsonStyleCheck($dir . '/' . $file, $mode));
                 } else {
                     if (fnmatch('*.json', $dir . '/' . $file)) {
-                        $invalidFile = checkContentInFile($dir . '/' . $file);
+                        $invalidFile = checkContentInFile($dir . '/' . $file, $mode);
                         if ($invalidFile !== false) {
                             $invalidFiles[] = $invalidFile;
                         }
@@ -31,7 +49,7 @@
         return $invalidFiles;
     }
 
-    function checkContentInFile(string $dir)
+    function checkContentInFile(string $dir, string $mode)
     {
         $fileOriginal = file_get_contents($dir);
 
@@ -48,5 +66,10 @@
         if ($fileOriginal == $fileCompare) {
             return false;
         }
+
+        if ($mode == 'fix') {
+            file_put_contents($dir, $fileCompare);
+        }
+
         return $dir;
     }
