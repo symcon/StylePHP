@@ -11,3 +11,12 @@
 "php-cs-fixer.config": ".style/.php_cs",
 "php-cs-fixer.allowRisky": true
 ```
+# Nutzung
+
+## JSON-Check
+Das json-check.php Skript kann ausgeführt werden, um festzustellen, welche JSON-Dateien nicht hinreichend formatiert sind.    
+Um alle JSON-Dateien den Anforderungen entsprechend zu formatieren kann das Skript mit dem Parameter 'fix' ausgeführt werden.
+```
+php .style/json-check.php
+php .style/json-check.php fix
+```
