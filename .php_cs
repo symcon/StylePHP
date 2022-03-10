@@ -1,7 +1,7 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('libs/vendor')
+    ->notPath('/libs\/.*\//') // regex, exclude only dirs in libs, not the files
     ->in(__DIR__);
 
 return PhpCsFixer\Config::create()

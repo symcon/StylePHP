@@ -42,7 +42,7 @@
         $invalidFiles = [];
         $files = scandir($dir);
         foreach ($files as $file) {
-            if ($file != '.' && $file != '..' && $dir != './libs/vendor') {
+            if ($file != '.' && $file != '..' && $dir != './libs/vendor' && $dir != './.vscode') {
                 if (is_dir($dir . '/' . $file)) {
                     $invalidFiles = array_merge($invalidFiles, jsonStyleCheck($dir . '/' . $file, $mode));
                 } else {
