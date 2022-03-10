@@ -39,10 +39,11 @@
 
     function jsonStyleCheck(string $dir, string $mode)
     {
+        $ignore = ['./.vscode', './.idea', './libs/vendor'];
         $invalidFiles = [];
         $files = scandir($dir);
         foreach ($files as $file) {
-            if ($file != '.' && $file != '..' && $dir != './libs/vendor') {
+            if ($file != '.' && $file != '..' && !in_array($dir, $ignore)) {
                 if (is_dir($dir . '/' . $file)) {
                     $invalidFiles = array_merge($invalidFiles, jsonStyleCheck($dir . '/' . $file, $mode));
                 } else {
