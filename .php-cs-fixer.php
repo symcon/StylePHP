@@ -5,7 +5,6 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('docs')  // exclude the docs
     ->notPath('/libs\/.*\//') // regex, exclude only dirs in libs, not the files
     ->in(__DIR__);
-echo(__DIR__."\n");
 
 return (new PhpCsFixer\Config())->setRules([
         'align_multiline_comment' => [
