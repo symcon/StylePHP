@@ -1,11 +1,13 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('libs/vendor')
+    ->exclude('tests/stubs')  // exclude the tests-stubs, but not the tests for this module
+    ->exclude('docs')  // exclude the docs
+    ->notPath('/libs\/.*\//') // regex, exclude only dirs in libs, not the files
     ->in(__DIR__);
+echo(__DIR__."\n");
 
-return PhpCsFixer\Config::create()
-    ->setRules([
+return (new PhpCsFixer\Config())->setRules([
         'align_multiline_comment' => [
             'comment_type' => 'all_multiline'
         ],
@@ -15,7 +17,7 @@ return PhpCsFixer\Config::create()
         ],
         //backtick_to_shell_exec
         'binary_operator_spaces' => [
-            'align_double_arrow' => true
+            'operators' => ['=>' => 'align']
         ],
         'blank_line_after_namespace' => true,
         'blank_line_after_opening_tag' => true,
@@ -69,7 +71,7 @@ return PhpCsFixer\Config::create()
         //list_syntax 
         'logical_operators' => true,
         'lowercase_cast' => true,
-        'lowercase_constants' => true,
+        'constant_case' => ['case' => 'lower'],
         'lowercase_keywords' => true,
         'lowercase_static_reference' => true,
         'magic_constant_casing' => true,
@@ -106,7 +108,7 @@ return PhpCsFixer\Config::create()
         'no_multiline_whitespace_around_double_arrow' => true,
         //no_null_property_initialization
         //no_short_bool_cast
-        'no_short_echo_tag' => true,
+        'echo_tag_syntax' => ['format' => 'long'],
         'no_singleline_whitespace_before_semicolons'=> true,
         'no_spaces_after_function_name' => true,
         'no_spaces_around_offset' => true,
@@ -169,7 +171,7 @@ return PhpCsFixer\Config::create()
         'switch_case_space' => true,
         'ternary_operator_spaces' => true,
         //ternary_to_null_coalescing
-        'trailing_comma_in_multiline_array' => false,
+        'trailing_comma_in_multiline' => false,
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
         'visibility_required' => true,
