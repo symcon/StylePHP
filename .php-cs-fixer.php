@@ -21,11 +21,16 @@ return (new PhpCsFixer\Config())->setRules([
         'blank_line_after_namespace' => true,
         'blank_line_after_opening_tag' => true,
         'blank_line_before_statement' => false,
-        'braces' => [
-            'position_after_anonymous_constructs' => 'next',
-            'position_after_control_structures' => 'same',
-            'position_after_functions_and_oop_constructs' => 'next'
-        ],
+        "single_space_around_construct" => true, 
+        //control_structure_braces, 
+        //control_structure_continuation_position 
+        "declare_parentheses" => true, 
+        "no_multiple_statements_per_line" => true, 
+        "braces_position" => [
+            'anonymous_functions_opening_brace' =>'next_line_unless_newline_at_signature_end'
+        ], 
+        "statement_indentation" => true,
+        "no_extra_blank_lines" => true,
         'cast_spaces' => true,
         'class_attributes_separation' => false,
         'class_definition' => true,
@@ -58,7 +63,7 @@ return (new PhpCsFixer\Config())->setRules([
         //fully_qualified_strict_types
         'function_declaration' => true,
         //function_to_constant
-        'function_typehint_space' => true,
+        'type_declaration_spaces' => true,
         //header_comment
         'implode_call' => true,
         'include' => true,
@@ -84,14 +89,14 @@ return (new PhpCsFixer\Config())->setRules([
         //native_constant_invocation
         'native_function_casing' => true,
         //native_function_invocation
-        'native_function_type_declaration_casing' => true,
-        'new_with_braces' => true,
+        'native_type_declaration_casing' => true,
+        'new_with_parentheses' => true,
         'no_alias_functions' => true,
         'no_alternative_syntax' => true,
         //no_binary_string
         'no_blank_lines_after_class_opening' => true,
         'no_blank_lines_after_phpdoc' => true,
-        'no_blank_lines_before_namespace' => false,
+        'blank_lines_before_namespace' => true,
         'no_break_comment' => [
             'comment_text' => 'No break. Add additional comment above this line if intentional'
         ],
@@ -110,16 +115,15 @@ return (new PhpCsFixer\Config())->setRules([
         'echo_tag_syntax' => ['format' => 'long'],
         'no_singleline_whitespace_before_semicolons'=> true,
         'no_spaces_after_function_name' => true,
-        'no_spaces_around_offset' => true,
-        'no_spaces_inside_parenthesis' => true,
+        'no_spaces_around_offset' => false,
+        'spaces_inside_parentheses' => true,
         //no_superfluous_elseif
         //no_superfluous_phpdoc_tags
-        'no_trailing_comma_in_list_call' => true,
-        'no_trailing_comma_in_singleline_array' => true,
+        'no_trailing_comma_in_singleline' => true,
         'no_trailing_whitespace' => true,
         'no_trailing_whitespace_in_comment' => true,
         'no_unneeded_control_parentheses' => true,
-        'no_unneeded_curly_braces' => false,
+        'no_unneeded_braces' => false,
         //no_unneeded_final_method
         //no_unset_cast
         //no_unset_on_property
@@ -152,7 +156,6 @@ return (new PhpCsFixer\Config())->setRules([
         //simple_to_complex_string_variable
         //simplified_null_return
         //single_blank_line_at_eof
-        'single_blank_line_before_namespace' => true,
         'single_class_element_per_statement' => true,
         'single_import_per_statement' => true,
         'single_line_after_imports' => true,
