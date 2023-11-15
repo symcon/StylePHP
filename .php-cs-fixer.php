@@ -4,7 +4,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('tests/stubs')  // exclude the tests-stubs, but not the tests for this module
     ->exclude('docs')  // exclude the docs
     ->notPath('/libs\/.*\//') // regex, exclude only dirs in libs, not the files
-    ->in(__DIR__);
+    ->in(__DIR__ . "/../");
 
 return (new PhpCsFixer\Config())->setRules([
         'align_multiline_comment' => [
@@ -21,14 +21,14 @@ return (new PhpCsFixer\Config())->setRules([
         'blank_line_after_namespace' => true,
         'blank_line_after_opening_tag' => true,
         'blank_line_before_statement' => false,
-        "single_space_around_construct" => true, 
-        //control_structure_braces, 
-        //control_structure_continuation_position 
-        "declare_parentheses" => true, 
-        "no_multiple_statements_per_line" => true, 
+        "single_space_around_construct" => true,
+        //control_structure_braces,
+        //control_structure_continuation_position
+        "declare_parentheses" => true,
+        "no_multiple_statements_per_line" => true,
         "braces_position" => [
-            'anonymous_functions_opening_brace' =>'next_line_unless_newline_at_signature_end'
-        ], 
+            'anonymous_functions_opening_brace' => 'next_line_unless_newline_at_signature_end'
+        ],
         "statement_indentation" => true,
         "no_extra_blank_lines" => true,
         'cast_spaces' => true,
@@ -37,7 +37,7 @@ return (new PhpCsFixer\Config())->setRules([
         //class_keyword_remove
         //combine_consecutive_issets
         //combine_consecutive_unsets
-        //combine_nested_dirname 
+        //combine_nested_dirname
         //comment_to_phpdoc
         //compact_nullable_typehint
         'concat_space' => [
@@ -50,8 +50,8 @@ return (new PhpCsFixer\Config())->setRules([
         //dir_constant
         'elseif' => true,
         'encoding' => true,
-        //ereg_to_preg 
-        //error_suppression 
+        //ereg_to_preg
+        //error_suppression
         //escape_implicit_backslashes
         //explicit_indirect_variable
         //explicit_string_variable
@@ -72,7 +72,7 @@ return (new PhpCsFixer\Config())->setRules([
         //is_null
         'line_ending' => true,
         'linebreak_after_opening_tag' => true,
-        //list_syntax 
+        //list_syntax
         'logical_operators' => true,
         'lowercase_cast' => true,
         'constant_case' => ['case' => 'lower'],
@@ -113,7 +113,7 @@ return (new PhpCsFixer\Config())->setRules([
         //no_null_property_initialization
         //no_short_bool_cast
         'echo_tag_syntax' => ['format' => 'long'],
-        'no_singleline_whitespace_before_semicolons'=> true,
+        'no_singleline_whitespace_before_semicolons' => true,
         'no_spaces_after_function_name' => true,
         'no_spaces_around_offset' => false,
         'spaces_inside_parentheses' => true,
@@ -133,7 +133,7 @@ return (new PhpCsFixer\Config())->setRules([
         'no_whitespace_before_comma_in_array' => true,
         'no_whitespace_in_blank_line' => true,
         //non_printable_character
-        'normalize_index_brace'=> true,
+        'normalize_index_brace' => true,
         'not_operator_with_space' => false,
         'not_operator_with_successor_space' => false,
         'object_operator_without_whitespace' => true,
@@ -146,7 +146,7 @@ return (new PhpCsFixer\Config())->setRules([
         'protected_to_private' => false,
         //psr0
         //psr4
-        //random_api_migration 
+        //random_api_migration
         //return_assignment
         'return_type_declaration' => true,
         'self_accessor' => true,
@@ -165,7 +165,7 @@ return (new PhpCsFixer\Config())->setRules([
         'space_after_semicolon' => true,
         //standardize_increment
         'standardize_not_equals' => true,
-        //static_lambda 
+        //static_lambda
         //strict_comparison
         //strict_param
         //string_line_ending
